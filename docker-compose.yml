@@ -1,0 +1,42 @@
+version: '3.6'
+
+# //////////////////////////////////////////////////////////////////////////////
+#                                  SERVICES
+# //////////////////////////////////////////////////////////////////////////////
+
+services:
+
+ # ============== SPA SERVER ==============
+
+  spa-server:
+    container_name: spa-server
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "4444:4444"
+    volumes:
+      - ./data/certs:/gateway/certs
+    cap_add:
+      - NET_ADMIN
+    networks:
+      - spa-net
+
+  # ============== SPA CLIENT ==============
+
+  spa-clientr:
+    container_name: spa-client
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    networks:
+      - spa-net
+    depends_on:
+      - spa-server
+
+# //////////////////////////////////////////////////////////////////////////////
+#                                  NETWORKS
+# //////////////////////////////////////////////////////////////////////////////
+
+networks:
+  spa-net: {}

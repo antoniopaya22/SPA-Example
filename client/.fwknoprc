@@ -1,0 +1,10 @@
+[default]
+
+[spa-server]
+ACCESS                      tcp/80
+SPA_SERVER                  [Gateway IP]
+KEY_BASE64                  VB5EobFPLjynQWkTIyhjQ1U87VOTSdxcBdUB1I46Atk=
+HMAC_KEY_BASE64             XMRP+hsgkx0wThsZ4gU1MGTTg9yd3USdNzPIFopdOyd1cS1m6Rxu+ognVnvaLX3LwyshfKun4s1iX8fmkGW+MA==
+USE_HMAC                    Y
+VERBOSE                     Y
+RESOLVE_IP_HTTPS            Y
